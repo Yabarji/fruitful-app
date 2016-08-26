@@ -1,0 +1,27 @@
+{
+  "name": "fruitful-app",
+  "version": "1.0.0",
+  "description": "Helping vegetable gardeners visualize their harvests",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kdanna/fruitful-app.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kdanna/fruitful-app/issues"
+  },
+  "homepage": "https://github.com/kdanna/fruitful-app#readme",
+  "dependencies": {
+    "express": "^4.14.0",
+    "body-parser": "^1.15.2",
+    "mongoose": "^4.5.9",
+    "nodemon": "^1.10.1"
+  }
+}
