@@ -9,7 +9,7 @@ var router = express.Router();
 var db = require("./app/models/");
 
 
-var db = require('./app/db/db');
+// var db = require('./app/db/db');
 // require('./db/seed');
 
 app.use(bodyParser.json());

@@ -12,9 +12,8 @@ var plants = [
 			plant_type: 'Tomato', 
 			plant_variety: 'Cherokee',
 			qty_planted: 10,
-			date_planted: '2016-',
+			date_planted: '2016',
 			harvest_dates:[Date],
 			harvest_qty:[Number]
 		}
-
-]
+];
