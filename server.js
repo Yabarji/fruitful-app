@@ -6,8 +6,7 @@ var app     = express();
 var router = express.Router();
 
 //requiring the user & garden users
-var User = require('./app/models/user');
-var Todo = require('./app/models/garden');
+var Garden = require('./app/models/garden');
 
 
 var db = require('./app/db/db');
