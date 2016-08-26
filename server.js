@@ -6,7 +6,7 @@ var app     = express();
 var router = express.Router();
 
 //requiring the user & garden users
-var Garden = require('./app/models/garden');
+var db = require("./app/models/");
 
 
 var db = require('./app/db/db');
@@ -19,6 +19,14 @@ app.use(bodyParser.urlencoded({ extended: true }));
 //main home route for the site
 app.use('/', express.static('public'));
 
+
+//API routes
+//GET route to show all gardens
+app.get('/api/gardens', function (req, res){
+  db.Garden.find({}, function(err, gardens) {
+  res.json(gardens);
+});
+});
 
 
 app.listen(3000, function(){
