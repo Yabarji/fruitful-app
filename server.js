@@ -23,14 +23,14 @@ app.use('/', express.static('public'));
 //API routes
 
 //WORKS. GET route to show all gardens.  "gardenModel" is pulling from the garden.js export
-app.get('/api/gardens', function (req, res){
+app.get('/api/gardens', function get(req, res){
   db.gardenModel.find({}, function(err, gardens) {
   res.json(gardens);
 });
 });
 
 //WORKS. GET:id route to SHOW one garden
-app.get('/api/gardens/:id', function albumShow(req, res) {
+app.get('/api/gardens/:id', function show(req, res) {
   console.log('requested garden id=', req.params.id);
   db.gardenModel.findOne({_id: req.params.id}, function(err, garden) {
     res.json(garden);
@@ -46,6 +46,30 @@ app.post('/api/gardens', function create(req, res){
       res.send("error is " + err);
     }
     res.json(garden);
+  });
+});
+
+//WORKS. DELETE 
+app.delete('/api/gardens/:id', function destroy(req, res) {
+  console.log('delete id: ', req.params.id);
+  db.gardenModel.remove({_id: req.params.id}, function(err) {
+    if (err) { return console.log(err); }
+    console.log("removal of id=" + req.params.id  + " successful.");
+    res.status(200).send();
+  });
+});
+
+//WORKS. UPDATE
+app.put('/api/gardens/:id', function(req, res) {
+  var id = req.params.id;
+  var garden = req.body;
+  console.log(id + garden);
+
+  db.gardenModel.findByIdAndUpdate(id, garden, function(err, garden) {
+    if (err) {
+      return res.status(500).json({ err: err.message });
+    }
+    res.json({'garden': garden, message: 'Garden Updated' });
   });
 });
 
