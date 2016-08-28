@@ -32,7 +32,7 @@ var gardenSeed = {
 	comments: ["best ever", "yumm"]
 };
 
-db.gardenModel.remove({}, function(err, albums){
+db.gardenModel.remove({}, function(err, garden){
 
   db.gardenModel.create(gardenSeed, function(err, garden){
     if (err) { return console.log('ERROR', err); }
