@@ -16,10 +16,6 @@ app.use(express.static(__dirname + '/public'));
 app.get('/', function(req, res) {
 });
 
-//User Garden Page
-app.get('/garden', function(req, res){
-  console.log("this is the garden-index page");
-});
 
 //requiring the user & garden users
 var db = require("./app/models/");
