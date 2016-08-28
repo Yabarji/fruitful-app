@@ -23,42 +23,60 @@
 	</table>
 
 <!-- <p>{{gardenData[0].plants[0].plant_type}}</p> -->
-
 <div class='container'>
-  <div class='row'>
-    <h1>Add Garden</h1>
-  </div>
+	<div class='row col-md-5'>
+		<h1>Add Plants</h1>
+	</div>
 </div> 
 
-<form ng-controller="mainController" class="add-garden" ng-submit='addGarden()'>
-        <div>
-          <label>Plant Type</label>
-          <input type="text" id="plant-type" placeholder="tomato" ng-model='newGarden.plants.plant_type'>
+<form ng-controller="mainController" class="form-horizontal" ng-submit='addGarden()'>
+	<fieldset class="text-left">
+        <div class="form-group">
+          <label class="col-md-2 control-label text-left" for="textinput">Plant Type</label>
+          <div class="col-md-3">
+            <input type="text" id="plant-type" placeholder="tomato" ng-model='newGarden.plants.plant_type' class="form-control">
+          </div>
         </div>
 
-        <div>
-       	  <label>Plant Variety</label>
-          <input type="text" id="plant-variety" placeholder="Sun Gold" ng-model='newGarden.plants.plant_variety'>
+        <div class="form-group">
+       	  <label class="col-md-2 control-label text-left" for="textinput">Plant Variety</label>
+          <div class="col-md-3">
+          	<input type="text" id="plant-variety" placeholder="Sun Gold" ng-model='newGarden.plants.plant_variety' class="form-control">
+          </div>
         </div>
 
-        <div>
-          <label>Quanity Planted</label>
-          <input type="number" id="qty-planted" placeholder="3" ng-model='newGarden.plants.qty_planted'>
+        <div class="form-group">
+          <label class="col-md-2 control-label text-left" for="textinput">Quanity Planted</label>
+          <div class="col-md-3">
+            <input type="number" id="qty-planted" placeholder="3" ng-model='newGarden.plants.qty_planted' class="form-control">
+			</div>
         </div>
 
-        <div>
-          <label>Date Planted</label>
-          <input type="date" id="date-planted" placeholder="date planted" ng-model='newGarden.plants.date_planted'>
+        <div class="form-group">
+          <label class="col-md-2 control-label text-left" for="textinput">Date Planted</label>
+          <div class="col-md-3">
+            <input type="date" id="date-planted" placeholder="date planted" ng-model='newGarden.plants.date_planted'>
+          </div>
         </div>
 
-        <div>
-          <label>Comments</label>
-          <input type="textarea" id="comments" ng-model='newGarden.comments'>
+        <div class="form-group">
+          <label class="col-md-2 control-label text-left" for="textinput">Comments</label>
+          <div class="col-md-2">
+			<input type="textarea" id="comments" ng-model='newGarden.comments'>
+		  </div>
         </div>
 
-        <div>
+      <!--   <div>
           <input type="submit" value="Add Garden">
-        </div>
-      <!--   <span>{{newGarden}}</span> -->
+        </div> -->
+
+		<div class="form-group">
+		  <label class="col-md-2 control-label" for="singlebutton"></label>
+		  <div class="col-md-3">
+		    <button id="singlebutton" name="singlebutton" class="btn btn-inverse" type='submit' value="Add Garden">Add to Garden</button>
+  		  </div>
+		</div>
+
+    </fieldset>  <!--   <span>{{newGarden}}</span> -->
 </form>
 
