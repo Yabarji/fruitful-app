@@ -5,20 +5,28 @@ var bodyParser = require('body-parser');
 var app     = express();
 var router = express.Router();
 
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+
+// Use public folder for frontend
+app.use(express.static(__dirname + '/public'));
+
+// Homepage
+app.get('/', function(req, res) {
+});
+
+//User Garden Page
+app.get('/garden', function(req, res){
+  console.log("this is the garden-index page");
+});
+
 //requiring the user & garden users
 var db = require("./app/models/");
 
 
 // var db = require('./app/db/db');
 // require('./db/seed');
-
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
-
-
-//main home route for the site
-app.use('/', express.static('public'));
-
 
 //API routes
 
