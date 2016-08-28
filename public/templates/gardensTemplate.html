@@ -1,11 +1,30 @@
-<section ng-controller="mainController as mainController">
-<h1>What's Growing</h1>
-<!-- <p>{{gardenData[0]._id}}</p> -->
-<p>{{gardenData[0].plants[0].plant_type}}</p>
+<div ng-controller="mainController as mainController">
+	<table class="table table-sm" >
+	  <thead>
+	    <tr>
+	      <th>Plant Type</th>
+	      <th>Plant Variety</th>
+	      <th># Planted</th>
+	      <th>Date Planted</th>
+	      <th>Last Harvest Date</th>
+	      <th>Amount Harvested</th>
+	    </tr>
+	  </thead>
+	  <tbody ng-repeat='garden in gardenData'>
+	    <tr ng-repeat='plant in garden.plants'>
+	      <td>{{plant.plant_type}}</td>
+	      <td>{{plant.plant_variety}}</td>
+	      <td>{{plant.qty_planted}}</td>
+	      <td>{{plant.date_planted}}</td>
+	      <td>{{plant.harvest_dates.last}}</td>
+	      <td>{{plant.harvest_qty.last}}</td>
+	    </tr>
+	  </tbody>
+	</table>
 
-</section>
+<!-- <p>{{gardenData[0].plants[0].plant_type}}</p> -->
 
-<div class='container text-left'>
+<div class='container'>
   <div class='row'>
     <h1>Add Garden</h1>
   </div>
@@ -33,8 +52,13 @@
         </div>
 
         <div>
+          <label>Comments</label>
+          <input type="textarea" id="comments" ng-model='newGarden.comments'>
+        </div>
+
+        <div>
           <input type="submit" value="Add Garden">
         </div>
-        <span>{{newGarden}}</span>
+      <!--   <span>{{newGarden}}</span> -->
 </form>
 
