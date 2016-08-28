@@ -26,7 +26,9 @@ app.controller('mainController', mainController)
 
 mainController.$inject=["$http","$scope"];
 function mainController($http, $scope){
-  $scope.addGarden = addGarden;
+  $scope.addGarden = addGarden; 
+  $scope.newGarden = {};
+
   getGarden();
 
 	function getGarden(){
@@ -34,18 +36,18 @@ function mainController($http, $scope){
 		.get('http://localhost:3000/api/gardens')
 		.then(function(response){
 			console.log(response.data);
-			self.all = response.data;
 			$scope.gardenData = response.data;
 		});
 	}
 
 	function addGarden(){
-		console.log("checking to see if addGarden is being called");
+		console.log("self.newGarden = " + $scope.newGarden);
 		$http
-		.post('http://localhost:3000/api/gardens')
+		.post('http://localhost:3000/api/gardens', $scope.newGarden)
 		.then(function(response){
+			$scope.newGarden.plants.plant_type[0] = $scope.newGarden.plants.plant_type[0];
 			console.log("adding a garden");
+			getGarden();
 		});
 	}
-
 }

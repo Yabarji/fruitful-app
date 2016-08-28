@@ -14,26 +14,27 @@
 <form ng-controller="mainController" class="add-garden" ng-submit='addGarden()'>
         <div>
           <label>Plant Type</label>
-          <input type="text" id="plant-type" placeholder="tomato" ng-model='mainController.newGarden.plants.plant_type'>
+          <input type="text" id="plant-type" placeholder="tomato" ng-model='newGarden.plants.plant_type'>
         </div>
 
         <div>
        	  <label>Plant Variety</label>
-          <input type="text" id="plant-variety" placeholder="Sun Gold" ng-model='mainController.newGarden.plants.plant_variety'>
+          <input type="text" id="plant-variety" placeholder="Sun Gold" ng-model='newGarden.plants.plant_variety'>
         </div>
 
         <div>
           <label>Quanity Planted</label>
-          <input type="number" id="qty-planted" placeholder="3" ng-model='mainController.newGarden.plants.qty_planted'>
+          <input type="number" id="qty-planted" placeholder="3" ng-model='newGarden.plants.qty_planted'>
         </div>
 
         <div>
           <label>Date Planted</label>
-          <input type="date" id="date-planted" placeholder="date planted" ng-model='mainController.newGarden.plants.date_planted'>
+          <input type="date" id="date-planted" placeholder="date planted" ng-model='newGarden.plants.date_planted'>
         </div>
 
         <div>
           <input type="submit" value="Add Garden">
         </div>
+        <span>{{newGarden}}</span>
 </form>
 
