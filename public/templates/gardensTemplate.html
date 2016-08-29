@@ -1,4 +1,4 @@
-<div ng-controller="mainController as mainController">
+<div ng-controller="mainController">
   <div class="table-responsive">	
 	<table class="table">
 	  <thead>
@@ -23,7 +23,7 @@
 	  </tbody>
 	</table>
   </div>
-</div>
+
 <!-- <p>{{gardenData[0].plants[0].plant_type}}</p> -->
 <div class='container'>
 	<div class='row col-md-5'>
@@ -31,7 +31,7 @@
 	</div>
 </div> 
 
-<form ng-controller="mainController" class="form-horizontal" ng-submit='addGarden()'>
+<form class="form-horizontal" ng-submit='addGarden()'>
 	<fieldset class="text-left">
         <div class="form-group">
           <label class="col-md-2 control-label text-left" for="textinput">Plant Type</label>
@@ -77,4 +77,4 @@
 
     </fieldset>  <!--   <span>{{newGarden}}</span> -->
 </form>
-
+</div>

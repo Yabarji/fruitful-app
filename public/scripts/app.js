@@ -28,7 +28,7 @@ mainController.$inject=["$http","$scope"];
 function mainController($http, $scope){
   $scope.addGarden = addGarden; 
   $scope.newGarden = {};
-  
+
 
   getGarden();
 
@@ -38,6 +38,7 @@ function mainController($http, $scope){
 		.then(function(response){
 			console.log(response.data);
 			$scope.gardenData = response.data;
+			console.log("HERE "+$scope.gardenData);
 		});
 	}
 
@@ -46,6 +47,7 @@ function mainController($http, $scope){
 		$http
 		.post('http://localhost:3000/api/gardens', $scope.newGarden)
 		.then(function(response){
+			$scope.newGarden = {};
 			console.log("adding a garden");
 			getGarden();
 		});
