@@ -1,5 +1,6 @@
 <div ng-controller="mainController as mainController">
-	<table class="table table-sm" >
+  <div class="table-responsive">	
+	<table class="table">
 	  <thead>
 	    <tr>
 	      <th>Plant Type</th>
@@ -21,7 +22,8 @@
 	    </tr>
 	  </tbody>
 	</table>
-
+  </div>
+</div>
 <!-- <p>{{gardenData[0].plants[0].plant_type}}</p> -->
 <div class='container'>
 	<div class='row col-md-5'>
@@ -46,7 +48,7 @@
         </div>
 
         <div class="form-group">
-          <label class="col-md-2 control-label text-left" for="textinput">Quanity Planted</label>
+          <label class="col-md-2 control-label text-left" for="textinput">Quantity Planted</label>
           <div class="col-md-3">
             <input type="number" id="qty-planted" placeholder="3" ng-model='newGarden.plants.qty_planted' class="form-control">
 			</div>
@@ -61,19 +63,15 @@
 
         <div class="form-group">
           <label class="col-md-2 control-label text-left" for="textinput">Comments</label>
-          <div class="col-md-2">
+          <div class="col-md-3">
 			<input type="textarea" id="comments" ng-model='newGarden.comments'>
 		  </div>
         </div>
 
-      <!--   <div>
-          <input type="submit" value="Add Garden">
-        </div> -->
-
 		<div class="form-group">
 		  <label class="col-md-2 control-label" for="singlebutton"></label>
 		  <div class="col-md-3">
-		    <button id="singlebutton" name="singlebutton" class="btn btn-inverse" type='submit' value="Add Garden">Add to Garden</button>
+		    <button id="singlebutton" name="singlebutton" class="btn btn-inverse" type='submit' value="Add Garden" >Add to Garden</button>
   		  </div>
 		</div>
 
