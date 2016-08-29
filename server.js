@@ -12,11 +12,6 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // Use public folder for frontend
 app.use(express.static(__dirname + '/public'));
 
-// Homepage
-app.get('/', function(req, res) {
-});
-
-
 //requiring the user & garden users
 var db = require("./app/models/");
 
@@ -77,6 +72,9 @@ app.put('/api/gardens/:id', function(req, res) {
   });
 });
 
+app.all('/*', function(req, res){
+  res.sendfile(__dirname + '/public/index.html');
+});
 
 
 app.listen(3000, function(){

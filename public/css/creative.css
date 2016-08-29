@@ -45,6 +45,10 @@ p {
 .bg-primary {
   background-color: #F05F40;
 }
+.bg-primary-white {
+  min-height: 50px;
+  background-color: #d3d3d3;
+}
 .bg-dark {
   background-color: #222222;
   color: white;
@@ -417,3 +421,4 @@ img::-moz-selection {
 body {
   webkit-tap-highlight-color: #222222;
 }
+

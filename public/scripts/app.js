@@ -1,11 +1,11 @@
-var app = angular.module("fruitfulApp", ['ngRoute'])
+var app = angular.module("fruitfulApp", ['ngRoute']);
 console.log('angular is working');
 
 
 // ROUTES //
 
 app.controller('mainController', mainController)
-.config(function($routeProvider, $locationProvider){
+.config(["$routeProvider", "$locationProvider", function($routeProvider, $locationProvider){
     $routeProvider
       .when('/', {
         templateUrl: 'templates/indexTemplate.html',
@@ -14,12 +14,13 @@ app.controller('mainController', mainController)
       .when('/gardens', { // the "id" parameter 
         templateUrl: 'templates/gardensTemplate.html',
         controller: 'mainController'
-      });
-    $locationProvider.html5Mode({
-      enabled: true,
-      requireBase: false
-    });
-});
+      })
+      .otherwise({redirectTo: '/'});
+  $locationProvider.html5Mode({
+  	enabled: true,
+  	requireBase: false
+	});
+}]);
 
 
 // CONTROLLERS
@@ -29,7 +30,6 @@ function mainController($http, $scope){
   $scope.addGarden = addGarden; 
   $scope.newGarden = {};
 
-
   getGarden();
 
 	function getGarden(){
@@ -38,7 +38,7 @@ function mainController($http, $scope){
 		.then(function(response){
 			console.log(response.data);
 			$scope.gardenData = response.data;
-			console.log("HERE "+$scope.gardenData);
+			console.log("HERE "+ $scope.gardenData);
 		});
 	}
 

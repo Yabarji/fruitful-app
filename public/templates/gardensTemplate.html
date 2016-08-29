@@ -1,80 +1,111 @@
+
+<section class="bg-primary-white" id="about">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 text-center">
+                <h2 class="section-heading">USER DASHBOARD</h2>
+            </div>
+        </div>
+    </div>
+</section>
+
 <div ng-controller="mainController">
-  <div class="table-responsive">	
-	<table class="table">
-	  <thead>
-	    <tr>
-	      <th>Plant Type</th>
-	      <th>Plant Variety</th>
-	      <th># Planted</th>
-	      <th>Date Planted</th>
-	      <th>Last Harvest Date</th>
-	      <th>Amount Harvested</th>
-	    </tr>
-	  </thead>
-	  <tbody ng-repeat='garden in gardenData'>
-	    <tr ng-repeat='plant in garden.plants'>
-	      <td>{{plant.plant_type}}</td>
-	      <td>{{plant.plant_variety}}</td>
-	      <td>{{plant.qty_planted}}</td>
-	      <td>{{plant.date_planted}}</td>
-	      <td>{{plant.harvest_dates.last}}</td>
-	      <td>{{plant.harvest_qty.last}}</td>
-	    </tr>
-	  </tbody>
-	</table>
-  </div>
-
-<!-- <p>{{gardenData[0].plants[0].plant_type}}</p> -->
-<div class='container'>
-	<div class='row col-md-5'>
-		<h1>Add Plants</h1>
-	</div>
-</div> 
-
-<form class="form-horizontal" ng-submit='addGarden()'>
-	<fieldset class="text-left">
-        <div class="form-group">
-          <label class="col-md-2 control-label text-left" for="textinput">Plant Type</label>
-          <div class="col-md-3">
-            <input type="text" id="plant-type" placeholder="tomato" ng-model='newGarden.plants.plant_type' class="form-control">
-          </div>
-        </div>
-
-        <div class="form-group">
-       	  <label class="col-md-2 control-label text-left" for="textinput">Plant Variety</label>
-          <div class="col-md-3">
-          	<input type="text" id="plant-variety" placeholder="Sun Gold" ng-model='newGarden.plants.plant_variety' class="form-control">
-          </div>
-        </div>
-
-        <div class="form-group">
-          <label class="col-md-2 control-label text-left" for="textinput">Quantity Planted</label>
-          <div class="col-md-3">
-            <input type="number" id="qty-planted" placeholder="3" ng-model='newGarden.plants.qty_planted' class="form-control">
-			</div>
-        </div>
-
-        <div class="form-group">
-          <label class="col-md-2 control-label text-left" for="textinput">Date Planted</label>
-          <div class="col-md-3">
-            <input type="date" id="date-planted" placeholder="date planted" ng-model='newGarden.plants.date_planted'>
-          </div>
-        </div>
-
-        <div class="form-group">
-          <label class="col-md-2 control-label text-left" for="textinput">Comments</label>
-          <div class="col-md-3">
-			<input type="textarea" id="comments" ng-model='newGarden.comments'>
-		  </div>
-        </div>
-
-		<div class="form-group">
-		  <label class="col-md-2 control-label" for="singlebutton"></label>
-		  <div class="col-md-3">
-		    <button id="singlebutton" name="singlebutton" class="btn btn-inverse" type='submit' value="Add Garden" >Add to Garden</button>
-  		  </div>
+  <div class="row">
+  <div class="add-plant-form col-md-6">
+	<div class='container'>
+		<div class='row col-md-6'>
+			<h1>Add Plants</h1>
 		</div>
+	</div> 
 
-    </fieldset>  <!--   <span>{{newGarden}}</span> -->
-</form>
+	<form class="form-horizontal" ng-submit='addGarden()'>
+		<fieldset class="text-left">
+	        <div class="form-group">
+	          <label class="col-md-3 control-label text-left" for="textinput">Plant Type</label>
+	          <div class="col-md-3">
+	            <input type="text" id="plant-type" placeholder="tomato" ng-model='newGarden.plants.plant_type' class="form-control">
+	          </div>
+	        </div>
+
+	        <div class="form-group">
+	       	  <label class="col-md-3 control-label text-left" for="textinput">Plant Variety</label>
+	          <div class="col-md-3">
+	          	<input type="text" id="plant-variety" placeholder="Sun Gold" ng-model='newGarden.plants.plant_variety' class="form-control">
+	          </div>
+	        </div>
+
+	        <div class="form-group">
+	          <label class="col-md-3 control-label text-left" for="textinput">Quantity Planted</label>
+	          <div class="col-md-3">
+	            <input type="number" id="qty-planted" placeholder="3" ng-model='newGarden.plants.qty_planted' class="form-control">
+				</div>
+	        </div>
+
+	        <div class="form-group">
+	          <label class="col-md-3 control-label text-center" for="textinput">Date Planted</label>
+	          <div class="col-md-3">
+	            <input type="date" id="date-planted" placeholder="date planted" ng-model='newGarden.plants.date_planted'>
+	          </div>
+	        </div>
+
+	        <div class="form-group">
+	          <label class="col-md-3 control-label text-left" for="textinput">Comments</label>
+	          <div class="col-md-3">
+				<input type="textarea" id="comments" ng-model='newGarden.comments'>
+			  </div>
+	        </div>
+
+			<div class="form-group">
+			  <label class="col-md-3 control-label" for="singlebutton"></label>
+			  <div class="col-md-3">
+			    <button id="singlebutton" name="singlebutton" class="btn btn-inverse" type='submit' value="Add Garden" >Add to Garden</button>
+	  		  </div>
+			</div>
+	    </fieldset>  
+	</form>
+  </div> 
+  <div class="pie-chart row">
+	<div class="col-md-6">
+		<div id="piechart" style="width: 900px; height: 500px;"></div>
+	</div>
+  </div> 
+</div>
+	<div class="col-md-12" id="accordion" role="tablist" aria-multiselectable="true">
+  	<div class="panel-heading" role="tab" id="headingOne">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+        <strong><h2>VIEW WHAT'S GROWING</h2></strong>
+        </a>
+      </h4>
+    </div>
+    <div id="collapseOne" class="panel-collapse collapse out" role="tabpanel" href="#" aria-labelledby="headingOne">
+	  <div class="table-responsive">	
+		<table class="table">
+		  <thead>
+		    <tr>
+		      <th>Plant Type</th>
+		      <th>Plant Variety</th>
+		      <th># Planted</th>
+		      <th>Date Planted</th>
+		      <th>Last Harvest Date</th>
+		      <th>Amount Harvested</th>
+		      <th></th>
+		    </tr>
+		  </thead>
+		  <tbody ng-repeat='garden in gardenData'>
+		    <tr ng-repeat='plant in garden.plants'>
+		      <td>{{plant.plant_type}}</td>
+		      <td>{{plant.plant_variety}}</td>
+		      <td>{{plant.qty_planted}}</td>
+		      <td>{{plant.date_planted}}</td>
+		      <td>{{plant.harvest_dates.last}}</td>
+		      <td>{{plant.harvest_qty.last}}</td>
+		      <td><button>Edit</button></td>
+		    </tr>
+		  </tbody>
+		</table>
+	  </div>
+	</div>
+	</div>
+
 </div>
