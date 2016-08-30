@@ -9,7 +9,7 @@
     </div>
 </section>
 
-<div ng-controller="mainController">
+<div ng-controller="mainController" ng-init="chart()">
   <div class="row">
 	   <div class="new-plant-form col-md-4">
 		<div class='container'>
@@ -64,6 +64,9 @@
 		    </fieldset>  
 		</form>
 	  </div> 
+	  <div class="for-graphs col-md-6 col-md-offset-1">
+		<canvas id="garden-chart">
+	  </div>
  </div>
 
 
@@ -95,8 +98,8 @@
 		      <td>{{plant.plant_variety}}</td>
 		      <td>{{plant.qty_planted}}</td>
 		      <td>{{plant.date_planted}}</td>
-		      <td>{{plant.harvest_dates.last}}</td>
-		      <td>{{plant.harvest_qty.last}}</td>
+		      <td>{{plant.harvest_dates[0]}}</td>
+		      <td>{{plant.harvest_qty[0]}}</td>
 		      <td><button ng-click='deletePlant(garden._id)'>Delete</button></td>
 		    </tr>
 		  </tbody>

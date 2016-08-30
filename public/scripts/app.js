@@ -30,6 +30,7 @@ function mainController($http, $scope, $routeParams){
   $scope.addGarden = addGarden; 
   $scope.newGarden = {};
   $scope.deletePlant = deletePlant;
+  $scope.chart = chart;
 
   getGarden();
 
@@ -61,5 +62,53 @@ function mainController($http, $scope, $routeParams){
 		.then(function(response){
 			console.log('deleted a plant');
 		});
+	}
+
+	function chart(){
+
+	  var ctx = document.getElementById("garden-chart");
+	  console.log(ctx);
+	  organicChart = new Chart(ctx, {
+	    type: 'pie',
+	    data: {
+	        labels: ['tomato', 'spinach', 'kale', 'swiss chard', 'pepper', 'cucumber'],
+
+	        datasets: [
+	        	{
+	        	label: 'Veggies',
+	          	data: [6, 10, 15, 20, 16, 15],
+	            backgroundColor: [
+	                '#DEE4E0',
+	                '#FBBDA8',
+	                '#79C6B2',
+	                '#A8BDDC',
+	                '#FE4B6B',
+	                '#963760'
+	            ],
+	            borderColor: [
+	            	'#DEE4E0',
+	                '#FBBDA8',
+	                '#79C6B2',
+	                '#A8BDDC',
+	                '#FE4B6B',
+	                '#963760'
+	            
+	            ],
+	            borderWidth: 1
+
+	           }
+	        ]
+	    },
+	    options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero:true
+                }
+            }]
+        }
+    }
+
+	});
 	}
 }
