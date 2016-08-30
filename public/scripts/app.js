@@ -25,10 +25,11 @@ app.controller('mainController', mainController)
 
 // CONTROLLERS
 
-mainController.$inject=["$http","$scope"];
-function mainController($http, $scope){
+mainController.$inject=["$http","$scope", "$routeParams"];
+function mainController($http, $scope, $routeParams){
   $scope.addGarden = addGarden; 
   $scope.newGarden = {};
+  $scope.deletePlant = deletePlant;
 
   getGarden();
 
@@ -50,6 +51,15 @@ function mainController($http, $scope){
 			$scope.newGarden = {};
 			console.log("adding a garden");
 			getGarden();
+		});
+	}
+
+	function deletePlant(id){
+		console.log("Delete params:" + id);
+		$http
+		.delete("http://localhost:3000/api/gardens/" + id)
+		.then(function(response){
+			console.log('deleted a plant');
 		});
 	}
 }
