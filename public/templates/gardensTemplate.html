@@ -1,5 +1,5 @@
 
-<section class="bg-primary-dashboard" id="about">
+<div class="row dashboard" id="about">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 text-center">
@@ -7,13 +7,13 @@
             </div>
         </div>
     </div>
-</section>
+</div>
 
 <div ng-controller="mainController" ng-init="chart()">
   <div class="row">
 	   <div class="new-plant-form col-md-4">
 		<div class='container'>
-			<div class='row col-md-4 text-left'>
+			<div class='row col-md-12  col-md-offset-2 text-left'>
 				<h3>Add Plants</h3>
 			</div>
 		</div> 
@@ -67,44 +67,8 @@
 	  <div class="for-graphs col-md-6 col-md-offset-1">
 		<canvas id="garden-chart">
 	  </div>
- </div>
-
-
-  <div class="col-md-12" id="accordion" role="tablist" aria-multiselectable="true">
-  	<div class="panel-heading" role="tab" id="headingOne">
-      <h4 class="panel-title">
-        <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-        <strong><h2 class="text-center">VIEW WHAT'S GROWING</h2></strong>
-        </a>
-      </h4>
-    </div>
-    <div id="collapseOne" class="panel-collapse collapse out" role="tabpanel" href="#" aria-labelledby="headingOne">
-	  <div class="table-responsive">	
-		<table class="table">
-		  <thead>
-		    <tr>
-		      <th>Plant Type</th>
-		      <th>Plant Variety</th>
-		      <th># Planted</th>
-		      <th>Date Planted</th>
-		      <th>Last Harvest Date</th>
-		      <th>Amount Harvested</th>
-		      <th></th>
-		    </tr>
-		  </thead>
-		  <tbody ng-repeat='garden in gardenData'>
-		    <tr ng-repeat='plant in garden.plants'>
-		      <td>{{plant.plant_type}}</td>
-		      <td>{{plant.plant_variety}}</td>
-		      <td>{{plant.qty_planted}}</td>
-		      <td>{{plant.date_planted}}</td>
-		      <td>{{plant.harvest_dates[0]}}</td>
-		      <td>{{plant.harvest_qty[0]}}</td>
-		      <td><button ng-click='deletePlant(garden._id)'>Delete</button></td>
-		    </tr>
-		  </tbody>
-		</table>
-	  </div>
-	</div>
   </div>
+ 	  <div>	
+		<ng-include src="'templates/garden-stats.html'"></ng-include>
+  	  </div>
 </div>

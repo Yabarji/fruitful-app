@@ -46,14 +46,14 @@ p {
   background-color: #F05F40;
 }
 .bg-primary-white {
-  min-height: 50px;
+  height: 20px;
   background-color: #d3d3d3;
 }
-.bg-primary-dashboard {
-  min-height: 50px;
-  margin-top: 10px;
+.dashboard {
+  height: 100px;
+  margin-top: 50px;
   color: white;
-  background-image: url('../img/gardenHeader.jpg');
+  background-image: url('../img/wood.jpg');
 }
 .bg-dark {
   background-color: #222222;
@@ -427,6 +427,4 @@ img::-moz-selection {
 body {
   webkit-tap-highlight-color: #222222;
 }
-.new-plant-form{
-  background: #e7e7e7;
-}
+

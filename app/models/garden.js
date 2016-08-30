@@ -6,7 +6,7 @@ var userSchema = new Schema ({
 	first_name: String,
 	last_name: String,
 	email: String,
-	profile_picture: String
+	profile_picture: String,
 });
 
 var plantSchema = new Schema ({

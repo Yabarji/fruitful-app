@@ -95,7 +95,6 @@ function mainController($http, $scope, $routeParams){
 	            
 	            ],
 	            borderWidth: 1
-
 	           }
 	        ]
 	    },
@@ -107,8 +106,7 @@ function mainController($http, $scope, $routeParams){
                 }
             }]
         }
-    }
-
+      }
 	});
 	}
 }
