@@ -49,6 +49,12 @@ p {
   min-height: 50px;
   background-color: #d3d3d3;
 }
+.bg-primary-dashboard {
+  min-height: 50px;
+  margin-top: 10px;
+  color: white;
+  background-image: url('../img/gardenHeader.jpg');
+}
 .bg-dark {
   background-color: #222222;
   color: white;
@@ -421,4 +427,6 @@ img::-moz-selection {
 body {
   webkit-tap-highlight-color: #222222;
 }
-
+.new-plant-form{
+  background: #e7e7e7;
+}
