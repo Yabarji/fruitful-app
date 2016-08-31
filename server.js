@@ -76,8 +76,9 @@ app.all('/*', function(req, res){
   res.sendfile(__dirname + '/public/index.html');
 });
 
+app.listen(process.env.PORT || 3000);
 
-app.listen(3000, function(){
-	console.log ("server is up");
+// app.listen(3000, function(){
+// 	console.log ("server is up");
 
-});
+// });
