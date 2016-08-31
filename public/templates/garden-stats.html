@@ -1,8 +1,9 @@
-<div class="col-md-12" id="accordion" role="tablist" aria-multiselectable="true">
+<hr size=2>
+<div class="col-md-10 col-md-offset-1" id="accordion" role="tablist" aria-multiselectable="true">
   	<div class="panel-heading" role="tab" id="headingOne">
       <h4 class="panel-title">
         <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-        <strong><h2 class="text-center">VIEW WHAT'S GROWING</h2></strong>
+        <strong><h2 class="accordion-header text-center">view garden goods</h2></strong>
         </a>
       </h4>
     </div>
@@ -13,9 +14,9 @@
 		    <tr>
 		      <th>Plant Type</th>
 		      <th>Plant Variety</th>
-		      <th># Planted</th>
+		      <th>Qty Planted</th>
 		      <th>Date Planted</th>
-		      <th>Last Harvest Date</th>
+		      <th>Money Spent</th>
 		      <th>Amount Harvested</th>
 		      <th></th>
 		    </tr>
@@ -26,9 +27,9 @@
 		      <td>{{plant.plant_variety}}</td>
 		      <td>{{plant.qty_planted}}</td>
 		      <td>{{plant.date_planted}}</td>
-		      <td>{{plant.harvest_dates[0]}}</td>
+		      <td>${{plant.est_cost}}</td>
 		      <td>{{plant.harvest_qty[0]}}</td>
-		      <td><button ng-click='deletePlant(garden._id)'>Delete</button></td>
+		      <td><button  class="btn btn-outline-secondary btn-sm" ng-click='deletePlant(garden._id)'>Delete</button></td>
 		    </tr>
 		  </tbody>
 		</table>

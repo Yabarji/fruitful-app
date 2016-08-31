@@ -21,14 +21,14 @@ var db = require("./app/models/");
 
 //API routes
 
-//GET route to show all users.  "db.User" is pulling from the user.js export
+//WORKS. GET route to show all users.  "db.User" is pulling from the user.js export
 app.get('/api/users', function get(req, res){
   db.User.find({}, function(err, user) {
   res.json(user);
 });
 });
 
-//GET:id route to SHOW one user
+//WORKS. GET:id route to SHOW one user
 app.get('/api/users/:id', function show(req, res) {
   console.log('requested user id=', req.params.id);
   db.User.findOne({_id: req.params.id}, function(err, user) {
@@ -37,7 +37,7 @@ app.get('/api/users/:id', function show(req, res) {
 });
 
 
-//POST new user
+//NOT TESTED. POST new user
 app.post('/api/users', function create(req, res){
   var newUser = req.body;
   db.User.create(newUser, function (err, user){
@@ -48,7 +48,7 @@ app.post('/api/users', function create(req, res){
   });
 });
 
-//DELETE 
+//WORKS. DELETE 
 app.delete('/api/users/:id', function destroy(req, res) {
   console.log('delete id: ', req.params.id);
   db.User.remove({_id: req.params.id}, function(err) {
@@ -58,7 +58,7 @@ app.delete('/api/users/:id', function destroy(req, res) {
   });
 });
 
-//UPDATE
+//NOT TESTED - UPDATE
 app.put('/api/users/:id', function(req, res) {
   var id = req.params.id;
   var user = req.body;

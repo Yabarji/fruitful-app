@@ -36,7 +36,7 @@ function mainController($http, $scope, $routeParams){
 
 	function getGarden(){
 		$http
-		.get('http://localhost:3000/api/gardens')
+		.get('http://localhost:3000/api/users')
 		.then(function(response){
 			console.log(response.data);
 			$scope.gardenData = response.data;
@@ -47,7 +47,7 @@ function mainController($http, $scope, $routeParams){
 	function addGarden(){
 		console.log("self.newGarden = " + $scope.newGarden);
 		$http
-		.post('http://localhost:3000/api/gardens', $scope.newGarden)
+		.post('http://localhost:3000/api/users', $scope.newGarden)
 		.then(function(response){
 			$scope.newGarden = {};
 			console.log("adding a garden");
@@ -58,9 +58,10 @@ function mainController($http, $scope, $routeParams){
 	function deletePlant(id){
 		console.log("Delete params:" + id);
 		$http
-		.delete("http://localhost:3000/api/gardens/" + id)
+		.delete("http://localhost:3000/api/users/" + id)
 		.then(function(response){
 			console.log('deleted a plant');
+			getGarden();	
 		});
 	}
 
@@ -91,8 +92,7 @@ function mainController($http, $scope, $routeParams){
 	                '#79C6B2',
 	                '#A8BDDC',
 	                '#FE4B6B',
-	                '#963760'
-	            
+	                '#963760'	            
 	            ],
 	            borderWidth: 1
 	           }
@@ -102,7 +102,7 @@ function mainController($http, $scope, $routeParams){
         scales: {
             yAxes: [{
                 ticks: {
-                    beginAtZero:true
+                    beginAtZero:false
                 }
             }]
         }
