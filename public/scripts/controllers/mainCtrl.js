@@ -33,7 +33,8 @@ function mainController($http, $scope, $routeParams){
 
 	function getGarden(){
 		$http
-		.get('http://localhost:3000/api/users')
+		.get("https://fruitful-app.herokuapp.com/api/users")
+		// .get('http://localhost:3000/api/users')
 		.then(function(response){
 			console.log(response.data);
 			$scope.gardenData = response.data;
@@ -44,7 +45,8 @@ function mainController($http, $scope, $routeParams){
 	function addGarden(){
 		console.log("self.newGarden = " + $scope.newGarden);
 		$http
-		.post('http://localhost:3000/api/users', $scope.newGarden)
+		.post('https://fruitful-app.herokuapp.com/api/users', $scope.newGarden)
+		// .post('http://localhost:3000/api/users', $scope.newGarden)
 		.then(function(response){
 			$scope.newGarden = {};
 			console.log("adding a garden");
@@ -55,7 +57,8 @@ function mainController($http, $scope, $routeParams){
 	function deletePlant(id){
 		console.log("Delete params:" + id);
 		$http
-		.delete("http://localhost:3000/api/users/" + id)
+		.delete("https://fruitful-app.herokuapp.com/api/users/" + id)
+		// .delete("http://localhost:3000/api/users/" + id)
 		.then(function(response){
 			console.log('deleted a plant');
 			getGarden();	
