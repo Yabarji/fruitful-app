@@ -1,8 +1,7 @@
 var mongoose = require('mongoose');
 
 //insert heroku stuff
-
-mongoose.connect('mongodb://localhost/fruitful-app', function(err){
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/fruitful-app", function(err){
 	if(err){
 		console.log('failed connecting to mongodb');
 	}else{
