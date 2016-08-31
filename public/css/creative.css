@@ -29,9 +29,13 @@ a:hover,
 a:focus {
   color: #eb3812;
 }
+.add_plant{
+  font-size: 20px;
+  font-family: 'Merriweather', 'Helvetica Neue', Arial, sans-serif;
+}
+
 h1,
 h2,
-h3,
 h4,
 h5,
 h6 {

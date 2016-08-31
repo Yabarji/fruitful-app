@@ -22,7 +22,7 @@
 		    </tr>
 		  </thead>
 		  <tbody ng-repeat='garden in gardenData'>
-		    <tr ng-repeat='plant in garden.plants'>
+		    <tr ng-repeat='plant in garden.plants | orderBy: "plant_type"'>
 		      <td>{{plant.plant_type}}</td>
 		      <td>{{plant.plant_variety}}</td>
 		      <td>{{plant.qty_planted}}</td>
