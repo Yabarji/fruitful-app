@@ -2,7 +2,7 @@ var mongoose = require('mongoose');
 
 //insert heroku stuff
 
-mongoose.connect('mongodb://localhost/fruitful', function(err){
+mongoose.connect('mongodb://localhost/fruitful-app', function(err){
 	if(err){
 		console.log('failed connecting to mongodb');
 	}else{
@@ -10,6 +10,5 @@ mongoose.connect('mongodb://localhost/fruitful', function(err){
 	}
 });
 
-module.exports.userModel = require('./garden.js');
-module.exports.plantModel = require('./garden.js');
-module.exports.gardenModel = require('./garden.js');
+module.exports.User = require('./user.js');
+module.exports.Plant = require('./user.js');

@@ -21,54 +21,54 @@ var db = require("./app/models/");
 
 //API routes
 
-//WORKS. GET route to show all gardens.  "gardenModel" is pulling from the garden.js export
-app.get('/api/gardens', function get(req, res){
-  db.gardenModel.find({}, function(err, gardens) {
-  res.json(gardens);
+//GET route to show all users.  "db.User" is pulling from the user.js export
+app.get('/api/users', function get(req, res){
+  db.User.find({}, function(err, user) {
+  res.json(user);
 });
 });
 
-//WORKS. GET:id route to SHOW one garden
-app.get('/api/gardens/:id', function show(req, res) {
-  console.log('requested garden id=', req.params.id);
-  db.gardenModel.findOne({_id: req.params.id}, function(err, garden) {
-    res.json(garden);
+//GET:id route to SHOW one user
+app.get('/api/users/:id', function show(req, res) {
+  console.log('requested user id=', req.params.id);
+  db.User.findOne({_id: req.params.id}, function(err, user) {
+    res.json(user);
   });
 });
 
 
-//WORKS. POST new garden
-app.post('/api/gardens', function create(req, res){
-  var newGarden = req.body;
-  db.gardenModel.create(newGarden, function (err, garden){
+//POST new user
+app.post('/api/users', function create(req, res){
+  var newUser = req.body;
+  db.User.create(newUser, function (err, user){
     if(err){
       res.send("error is " + err);
     }
-    res.json(garden);
+    res.json(user);
   });
 });
 
-//WORKS. DELETE 
-app.delete('/api/gardens/:id', function destroy(req, res) {
+//DELETE 
+app.delete('/api/users/:id', function destroy(req, res) {
   console.log('delete id: ', req.params.id);
-  db.gardenModel.remove({_id: req.params.id}, function(err) {
+  db.User.remove({_id: req.params.id}, function(err) {
     if (err) { return console.log(err); }
     console.log("removal of id=" + req.params.id  + " successful.");
     res.status(200).send();
   });
 });
 
-//WORKS. UPDATE
-app.put('/api/gardens/:id', function(req, res) {
+//UPDATE
+app.put('/api/users/:id', function(req, res) {
   var id = req.params.id;
-  var garden = req.body;
-  console.log(id + garden);
+  var user = req.body;
+  console.log(id + user);
 
-  db.gardenModel.findByIdAndUpdate(id, garden, function(err, garden) {
+  db.User.findByIdAndUpdate(id, user, function(err, user) {
     if (err) {
       return res.status(500).json({ err: err.message });
     }
-    res.json({'garden': garden, message: 'Garden Updated' });
+    res.json({'user': user, message: 'User Updated' });
   });
 });
 
