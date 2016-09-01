@@ -28,25 +28,27 @@ function mainController($http, $scope, $routeParams){
   $scope.newGarden = {};
   $scope.deletePlant = deletePlant;
   $scope.chart = chart;
+  $scope.plantTypes = [];
+  $scope.plantQty = [];
 
   getGarden();
+  findPlantTypes();
 
 	function getGarden(){
 		$http
-		.get("https://fruitful-app.herokuapp.com/api/users")
-		// .get('http://localhost:3000/api/users')
+		// .get("https://fruitful-app.herokuapp.com/api/users")
+		.get('http://localhost:3000/api/users')
 		.then(function(response){
-			console.log(response.data);
+			// console.log(response.data);
 			$scope.gardenData = response.data;
-			console.log("HERE "+ $scope.gardenData);
 		});
 	}
 
 	function addGarden(){
 		console.log("self.newGarden = " + $scope.newGarden);
 		$http
-		.post('https://fruitful-app.herokuapp.com/api/users', $scope.newGarden)
-		// .post('http://localhost:3000/api/users', $scope.newGarden)
+		// .post('https://fruitful-app.herokuapp.com/api/users', $scope.newGarden)
+		.post('http://localhost:3000/api/users', $scope.newGarden)
 		.then(function(response){
 			$scope.newGarden = {};
 			console.log("adding a garden");
@@ -57,11 +59,28 @@ function mainController($http, $scope, $routeParams){
 	function deletePlant(id){
 		console.log("Delete params:" + id);
 		$http
-		.delete("https://fruitful-app.herokuapp.com/api/users/" + id)
-		// .delete("http://localhost:3000/api/users/" + id)
-		.then(function(response){
+		// .delete("https://fruitful-app.herokuapp.com/api/users/" + id)
+		.delete("http://localhost:3000/api/users/" + id)
+		.then(function(response){	
 			console.log('deleted a plant');
 			getGarden();	
+		});
+	}
+
+	function findPlantTypes(){
+		$http
+		// .get("https://fruitful-app.herokuapp.com/api/users")
+		.get('http://localhost:3000/api/users')
+		.then(function(response){
+			console.log(response.data[0]);
+			$scope.plantData = response.data[0].plants;		
+			var plants = $scope.plantData;
+		for(i = 0; i < plants.length; i++){
+			console.log(plants[i].plant_type);
+			$scope.plantTypes.push(plants[i].plant_type);
+			$scope.plantQty.push(plants[i].qty_planted);
+		}
+			chart();
 		});
 	}
 
@@ -72,12 +91,12 @@ function mainController($http, $scope, $routeParams){
 	  organicChart = new Chart(ctx, {
 	    type: 'pie',
 	    data: {
-	        labels: ['tomato', 'spinach', 'kale', 'swiss chard', 'pepper', 'cucumber'],
+	        labels: $scope.plantTypes,
 	        		
 	        datasets: [
 	        	{
 	        	label: 'Veggies',
-	          	data: [6, 10, 15, 20, 16, 15],
+	          	data:  $scope.plantQty,
 	            backgroundColor: [
 	                '#DEE4E0',
 	                '#FBBDA8',
@@ -105,6 +124,7 @@ function mainController($http, $scope, $routeParams){
 	});
 	}
 }
+
 
 
 
