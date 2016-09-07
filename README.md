@@ -1,7 +1,8 @@
-# FRUITFUL-APP:
+# FRUITFUL-APP
 Helping vegetable gardeners visualize their harvests.
 
-Website:  https://fruitful-app.herokuapp.com/
+Website:  https://fruitful-app.herokuapp.com
+
 User stories & wireframes: https://trello.com/b/2CoIh27m
 
 This app was created in 5 days as a self-directed project for General Assembly's Web Development Immersive Course.
