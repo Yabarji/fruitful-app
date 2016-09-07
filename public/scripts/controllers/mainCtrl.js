@@ -65,7 +65,7 @@ function mainController($http, $scope, $routeParams){
 			console.log('deleted a plant');
 			getGarden();	
 		});
-	}
+	}=
 
 	function findPlantTypes(){
 		$http
